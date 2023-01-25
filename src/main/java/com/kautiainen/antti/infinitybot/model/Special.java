@@ -20,7 +20,7 @@ public interface Special extends Comparable<Special> {
 	/**
 	 * Pattern patching not a quote or escape sequence
 	 */
-	public static final Pattern NOT_A_QUOTE_OR_ESCAPER = Pattern.compile("[^\\\\\"]");
+	public static final Pattern NOT_A_QUOTE_OR_ESCAPER = Pattern.compile("[^\\\\\\\"]");
 	
 
 	/**
@@ -29,7 +29,7 @@ public interface Special extends Comparable<Special> {
 	 */
 	public static final Pattern WORD_PATTERN = Pattern
 			.compile(
-					"(?:\\p{Lu}[\\p{Ll}\\p{Punct}&&[^\\{\\}\\[\\]\\(\\)]&&"+
+					"(?:\\p{Lu}[\\p{Ll}\\-`´&&"+
 			NOT_A_QUOTE_OR_ESCAPER.toString() + "]*)+",
 					Pattern.UNICODE_CHARACTER_CLASS);
 	

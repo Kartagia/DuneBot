@@ -42,16 +42,20 @@ public class Term<TYPE> {
 		if (validName(name)) {
 			this.name_ = name;
 		} else {
-			throw new IllegalArgumentException("Invalid name");
+			throw new IllegalArgumentException("Invalid name: " + quoteIfPresent(name));
 		}
 		if (propertyName == null || validPropertyName(propertyName)) {
 			this.propertyName_ = Optional.ofNullable(propertyName);
 		} else {
-			throw new IllegalArgumentException("Invalid property name");
+			throw new IllegalArgumentException("Invalid property name: " + quoteIfPresent(propertyName));
 		}
 		this.defaultValue_ = defaultValue;			
 	}
 	
+	private static String quoteIfPresent(String propertyName) {
+		return propertyName == null ? "(Undefined)" : "'" + propertyName + "'";
+	}
+
 	/**
 	 * Term is a combination of a property name, default value, and name.
 	 * 

@@ -60,7 +60,7 @@ public interface Trait {
 	 * @return The message indicating invalid property of given class name.
 	 */
 	static String getInvalidPropertyMessage(String className, String propertyName) {
-		return String.format("Invalid %s%s%", 
+		return String.format("Invalid %s%s%%", 
 				((className == null || className.trim().isEmpty()) ? "" : className) , 
 				((className == null || className.trim().isEmpty() || propertyName == null || propertyName.trim().isEmpty() ) ? "" : " "),
 				(propertyName == null ? "" : propertyName));
@@ -72,13 +72,15 @@ public interface Trait {
 	 */
 	static final Pattern LEVEL_PARSE_PATTERN = Pattern.compile("\\((?<" + LEVEL_GROUP_NAME + ">\\d)\\)");
 
-
+	Pattern NAME_WORD_PATTERN = Special.WORD_PATTERN;
+	// Pattern.compile("\\p{Lu}(?:\\.|[\\p{Ll}]+)?", Pattern.UNICODE_CHARACTER_CLASS);
+	
 	/**
 	 * The pattern matching to the name pattern. The name
 	 *  of the asset is stored into the group {@link #NAME_GROUP_NAME}.
 	 */
-	Pattern NAME_PARSE_PATTERN = Pattern.compile("(?<"+ NAME_GROUP_NAME + ">"+ Special.WORD_PATTERN + 
-			"(?\\s" + Special.WORD_PATTERN + ")*" + ")");
+	Pattern NAME_PARSE_PATTERN = Pattern.compile("(?<"+ NAME_GROUP_NAME + ">"+ NAME_WORD_PATTERN +
+			"(?:[-\\s]" + NAME_WORD_PATTERN + ")*" + ")", Pattern.UNICODE_CHARACTER_CLASS);
 	/**
 	 * The pattern matching to the description pattern. 
 	 * The description is stored into the group {@link #DESCRIPTION_GROUP_NAME}. 
