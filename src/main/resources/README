@@ -1,0 +1,9 @@
+###
+## INFINITY DISCORD BOT
+###
+
+CONFIGURATION
+- Create the configuration file "infinitybot.config.xml" either under working directory, or use home. 
+- This JAR file contains example configuration file with guidelines how to create your own bot. 
+
+USAGE: java infinitybot.jar

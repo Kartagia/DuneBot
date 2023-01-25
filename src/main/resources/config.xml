@@ -1,0 +1,9 @@
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+
+<properties>
+<comment>Infinity Bot configuration file.</comment>
+<entry key="infinitybot.token">Put Bot Token Here</entry>
+<!-- Uncomment the following command, if you want to limit bot to specific guilds. 
+<entry key="infinitybot.guildIds">guildid1 guildid2 ... guildIdN</entry>
+-->
+</properties>
